@@ -4,9 +4,13 @@ let arrNudeln = gerichteListe.Nudeln;
 let arrVegi = gerichteListe.VegitarischeGerichte;
 
 let init = function () {
-  console.log("Halttttlo Welt");
+  console.log("init Welt");
 
   renderPizza();
   renderNudeln();
   renderVegi();
+  renderEinkaufswagen();
+  renderBestellSumme();
+
+  // cart related renderings happen when user orders something
 };
