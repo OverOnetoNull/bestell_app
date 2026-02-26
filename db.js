@@ -35,4 +35,22 @@ let gerichteListe = {
       beschreibung: "Fettuccine mit cremiger Käsesoße",
     },
   ],
+
+  VegitarischeGerichte: [
+    {
+      name: "Gemüsepfanne",
+      preis: 9.0,
+      beschreibung: "Buntes Gemüse mit Reis",
+    },
+    {
+      name: "Vegetarische Lasagne",
+      preis: 11.0,
+      beschreibung: "Lasagne mit Gemüse und Käse",
+    },
+    {
+      name: "Quinoa-Salat",
+      preis: 8.0,
+      beschreibung: "Quinoa mit frischem Gemüse und Feta",
+    },
+  ],
 };
