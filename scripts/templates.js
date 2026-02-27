@@ -82,7 +82,7 @@ let renderBestellen = function (index, gericht) {
   }
 
   document.getElementById("bestellung").innerHTML =
-    `<p>Du hast ${bestellung.name} für ${bestellung.preis}€ bestellt.</p>`;
+    `<p>Du hast zuletzt ${bestellung.name} für ${bestellung.preis}€ bestellt.</p>`;
   renderEinkaufswagen();
   renderBestellSumme();
 };
@@ -101,8 +101,8 @@ let renderEinkaufswagen = function () {
   cart.forEach((item, idx) => {
     const qty = item.menge || 1;
     const cost = (item.preis * qty).toFixed(2);
-    htmlString += `<div class="gericht">
-          <h2>${item.name}</h2>
+    htmlString += `<div class="gerichtEinkaufswagen">
+          <p>${item.name}</p>
           <p>Einzelpreis: ${item.preis}€</p>
           <p>Menge: ${qty}</p>
           

@@ -8,10 +8,12 @@ body {
 
 
 
-h1 {
+h2 {
     color: #333;
     font-size: 2em;
     margin-bottom: 1em;
+    position: center;
+    align-self: center;
 }
 
 
@@ -19,6 +21,8 @@ p {
     color: #666;
     line-height: 1.5;
     margin-bottom: 1em;
+    display: flex;
+    align-self: center;
 }
 
 a {
@@ -26,9 +30,21 @@ a {
     text-decoration: none;
 }
 
+button {
+    height: 32px;
+    position: center;
+    align-self: center;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 .content_wrapper {
     display: flex;
-    width: calc(100% - 300px);
+    width: calc(100% - 600);
     padding: 20px;
 }
 
@@ -42,6 +58,9 @@ a {
 }
 
 .Einkaufswagen {
+
+
+    width: 600px;
     background-color: #e0e0e0;
     padding: 10px;
 
@@ -63,9 +82,35 @@ a {
 .basket {
     width: 100%;
     height: 400px;
-    top: 0;
+    top: 120px;
     position: sticky;
 
+}
+
+.gericht {
+    display: flex;
+    background-color: #d0d0d0;
+    padding: 10px;
+    margin-top: 20px;
+    margin: 20px;
+    gap: 5px;
+}
+
+
+.gerichtEinkaufswagen {
+    display: flex;
+    background-color: #d0d0d0;
+    height: 42px;
+    gap: 12px;
+}
+
+
+.pizzaContainer {
+    display: flex;
+    background-color: #c0c0c0;
+    padding: 10px;
+    margin-top: 20px;
+    margin: 20px;
 }
 
 
