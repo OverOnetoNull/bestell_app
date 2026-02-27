@@ -2,6 +2,7 @@
 let arrPizza = gerichteListe.Pizzas;
 let arrNudeln = gerichteListe.Nudeln;
 let arrVegi = gerichteListe.VegitarischeGerichte;
+let arrEinkaufswagen = [];
 
 let init = function () {
   console.log("init Welt");
@@ -11,6 +12,5 @@ let init = function () {
   renderVegi();
   renderEinkaufswagen();
   renderBestellSumme();
-
   // cart related renderings happen when user orders something
 };
