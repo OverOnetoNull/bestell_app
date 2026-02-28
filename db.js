@@ -3,54 +3,71 @@ let gerichteListe = {
     {
       name: "Pizza Margherita",
       preis: 8.5,
-      beschreibung: "Tomaten, Mozzarella, Basilikum",
+      beschreibung:
+        "Knuspriger Teig, fruchtige Tomatensauce, zart schmelzender Mozzarella und frisches Basilikum – der italienische Klassiker.",
+      imgDBsrc: "assets/img/gerichte/margherita_pizza.jpg",
     },
     {
       name: "Pizza Pepperoni",
       preis: 10.0,
-      beschreibung: "Tomaten, Mozzarella, Pepperoni",
+      beschreibung:
+        "Aromatische Tomatensauce, Mozzarella und würzige Pepperoni-Scheiben – kräftig, herzhaft, leicht pikant.",
+      imgDBsrc: "assets/img/gerichte/pepperoni_pizza.jpg",
     },
     {
       name: "Pizza Funghi",
       preis: 9.5,
-      beschreibung: "Tomaten, Mozzarella, Pilze",
+      beschreibung:
+        "Tomatensauce, Mozzarella und saftige Champignons – mild, aromatisch und wunderbar ausgewogen.",
+      imgDBsrc: "assets/img/gerichte/funghi_pizza.jpg",
     },
   ],
 
-  Nudeln: [
+  Pasta: [
     {
       name: "Spaghetti Bolognese",
       preis: 12.0,
-      beschreibung: "Spaghetti mit Hackfleischsoße",
+      beschreibung:
+        "Spaghetti al dente mit langsam gekochter, kräftiger Bolognese aus Hackfleisch und Tomaten.",
+      imgDBsrc: "assets/img/gerichte/spaghetti_bolognese.jpg",
     },
-
     {
       name: "Penne Arrabbiata",
       preis: 11.0,
-      beschreibung: "Penne mit scharfer Tomatensoße",
+      beschreibung:
+        "Penne in scharfer Tomatensauce mit Knoblauch und Chili – feurig, direkt, italienisch.",
+      imgDBsrc: "assets/img/gerichte/penne_arrabbiata.jpg",
     },
     {
       name: "Fettuccine Alfredo",
       preis: 13.0,
-      beschreibung: "Fettuccine mit cremiger Käsesoße",
+      beschreibung:
+        "Cremige Parmesan-Sahnesauce mit zarten Fettuccine – samtig, vollmundig, comfort pur.",
+      imgDBsrc: "assets/img/gerichte/fettuccine_alfredo.jpg",
     },
   ],
 
-  VegitarischeGerichte: [
+  Vegetarische_Gerichte: [
     {
       name: "Gemüsepfanne",
       preis: 9.0,
-      beschreibung: "Buntes Gemüse mit Reis",
+      beschreibung:
+        "Knackiges Gemüse, schonend gebraten und mit Reis serviert – leicht gewürzt, voller Geschmack.",
+      imgDBsrc: "assets/img/gerichte/   .jpg",
     },
     {
       name: "Vegetarische Lasagne",
       preis: 11.0,
-      beschreibung: "Lasagne mit Gemüse und Käse",
+      beschreibung:
+        "Gemüse, Tomate, Béchamel und Käse – goldbraun überbacken und richtig sättigend.",
+      imgDBsrc: "assets/img/gerichte/vegetarische_lasagne.jpg",
     },
     {
-      name: "Quinoa-Salat",
-      preis: 8.0,
-      beschreibung: "Quinoa mit frischem Gemüse und Feta",
+      name: "Halloumi Teller",
+      preis: 10.0,
+      beschreibung:
+        "Gegrillter Halloumi mit Salat, Dip und Beilage – herzhaft, frisch und perfekt zum Teilen.",
+      imgDBsrc: "assets/img/gerichte/halloumi_teller.jpg",
     },
   ],
 };

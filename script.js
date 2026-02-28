@@ -1,16 +1,21 @@
 // Arrays für die Gerichte direkt aus der Datenbank
 let arrPizza = gerichteListe.Pizzas;
-let arrNudeln = gerichteListe.Nudeln;
-let arrVegi = gerichteListe.VegitarischeGerichte;
+// database was changed to use "Pasta" and "Vegetarische_Gerichte" keys
+let arrPasta = gerichteListe.Pasta;
+let arrVegetarische = gerichteListe.Vegetarische_Gerichte;
 let arrEinkaufswagen = [];
 
 let init = function () {
   console.log("init Welt");
 
   renderPizza();
-  renderNudeln();
-  renderVegi();
+  renderPasta();
+  renderVegetarische();
+
   renderEinkaufswagen();
   renderBestellSumme();
-  // cart related renderings happen when user orders something
+  renderLiefersumme();
+
+  // cart related renderings happen when
+  // user orders something
 };

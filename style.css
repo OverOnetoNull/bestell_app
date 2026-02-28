@@ -81,10 +81,10 @@ button {
 
 .basket {
     width: 100%;
-    height: 400px;
-    top: 120px;
-    position: sticky;
+    /* height: 400px; */
 
+    position: sticky;
+    top: 80px;
 }
 
 .gericht {
@@ -105,14 +105,24 @@ button {
 }
 
 
-.pizzaContainer {
+/* containers should target the ID, not a class */
+#pizzaContainer,
+#pastaContainer,
+#vegiContainer {
     display: flex;
+    flex-wrap: wrap;
     background-color: #c0c0c0;
     padding: 10px;
-    margin-top: 20px;
     margin: 20px;
 }
 
+/* make images visible at a reasonable size */
+.imgDBsrcClass {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
 
 /* .testzweicontent {
     background-color: #d0d0d0;

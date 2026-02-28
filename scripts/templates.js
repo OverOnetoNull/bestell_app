@@ -1,79 +1,90 @@
-// shopping cart holds ordered items
 let cart = [];
 
-// hier wollen wir die Funktion renderPizza() ausführen,
-// damit die Seite auch etwas anzeigt, wenn sie geladen wird
-// wenn wir die Funktion renderPizza() aufrufen, dann soll sie die
-// Pizza aus dem Array in der HTML-Seite anzeigen
-
 function renderPizza() {
+  console.group("renderPizza");
+  console.log("arrPizza =", arrPizza);
+  if (!Array.isArray(arrPizza)) {
+    console.error("arrPizza is not an array!");
+  }
+
   let htmlString = "";
-  for (let i = 0; i < arrPizza.length; i++) {
+  for (let i = 0; i < (arrPizza ? arrPizza.length : 0); i++) {
     htmlString += `<div class="gericht">
+        <img src="${arrPizza[i].imgDBsrc}" class="imgDBsrcClass" alt="${arrPizza[i].name}">
         <h2>${arrPizza[i].name}</h2>
         <p>${arrPizza[i].beschreibung}</p>
-        <p>${arrPizza[i].preis}€</p>
+        <p>${arrPizza[i].preis.toFixed(2)}€</p>
         <button onclick="renderBestellen(${i}, 'Pizza')">Bestellen</button>
         </div>`;
   }
-  document.getElementById("pizzaContainer").innerHTML = htmlString;
+
+  const container = document.getElementById("pizzaContainer");
+  if (!container) {
+    console.error("#pizzaContainer not found in DOM");
+  } else {
+    container.innerHTML = htmlString;
+  }
+  console.groupEnd();
 }
 
-// hier soll die Funktion renderBestellen() die bestellte
-//  Pizza oder Nudel mit dem Preis anzeigen, damit wir
-//  wissen was wir bestellt haben und wie viel es kostet;
-// beachte: die Funktion renderBestellen() soll die bestellte
-// Pizza oder Nudel mit dem Preis anzeigen, damit wir wissen
-// was wir bestellt haben und wie viel es kostet
-
-let renderNudeln = function () {
+let renderPasta = function () {
+  console.group("renderPasta");
+  console.log("arrPasta =", arrPasta);
+  if (!Array.isArray(arrPasta)) {
+    console.error("arrPasta is not an array!");
+  }
   let htmlString = "";
-  for (let i = 0; i < arrNudeln.length; i++) {
+  for (let i = 0; i < (arrPasta ? arrPasta.length : 0); i++) {
     htmlString += `<div class="gericht">
-          <h2>${arrNudeln[i].name}</h2>
-          <p>${arrNudeln[i].beschreibung}</p>
-          <p>${arrNudeln[i].preis}€</p>
-          <button onclick="renderBestellen(${i}, 'Nudeln')">Bestellen</button>
+          <img src="${arrPasta[i].imgDBsrc}" class="imgDBsrcClass" alt="${arrPasta[i].name}">
+          <h2>${arrPasta[i].name}</h2>
+          <p>${arrPasta[i].beschreibung}</p>
+          <p>${arrPasta[i].preis.toFixed(2)}€</p>
+          <button onclick="renderBestellen(${i}, 'Pasta')">Bestellen</button>
           </div>`;
   }
-  document.getElementById("nudelnContainer").innerHTML = htmlString;
+  const container = document.getElementById("pastaContainer");
+  if (!container) console.error("#pastaContainer missing");
+  else container.innerHTML = htmlString;
+  console.groupEnd();
 };
-// hier soll die Funktion renderBestellen()
-// die bestellte Pizza oder Nudel mit dem Preis
-// anzeigen, damit wir wissen was wir bestellt
-// haben und wie viel es kostet; beachte: die Funktion
-//  renderBestellen() soll die bestellte Pizza oder
-// Nudel mit dem Preis anzeigen, damit wir wissen
-// was wir bestellt haben und wie viel es kostet
-let renderVegi = function () {
+
+let renderVegetarische = function () {
+  console.group("renderVegetarische");
+  console.log("arrVegetarische =", arrVegetarische);
+  if (!Array.isArray(arrVegetarische)) {
+    console.error("arrVegetarische is not an array!");
+  }
   let htmlString = "";
-  for (let i = 0; i < arrVegi.length; i++) {
+  for (let i = 0; i < (arrVegetarische ? arrVegetarische.length : 0); i++) {
     htmlString += `<div class="gericht">
-          <h2>${arrVegi[i].name}</h2>
+          <img src="${arrVegetarische[i].imgDBsrc}" class="imgDBsrcClass" alt="${arrVegetarische[i].name}">
+          <h2>${arrVegetarische[i].name}</h2>
           
-          <p>${arrVegi[i].beschreibung}</p>
-          <p>${arrVegi[i].preis}€</p>
-          <button onclick="renderBestellen(${i}, 'Vegi')">Bestellen</button>
+          <p>${arrVegetarische[i].beschreibung}</p>
+          <p>${arrVegetarische[i].preis.toFixed(2)}€</p>
+          <button onclick="renderBestellen(${i}, 'Vegetarische')">Bestellen</button>
           </div>`;
   }
-  document.getElementById("vegiContainer").innerHTML = htmlString;
+  const container = document.getElementById("vegiContainer");
+  if (!container) console.error("#vegiContainer missing");
+  else container.innerHTML = htmlString;
+  console.groupEnd();
 };
 
-// add item to cart and update displays
 let renderBestellen = function (index, gericht) {
   let bestellung;
 
   if (gericht === "Pizza") {
     bestellung = arrPizza[index];
-  } else if (gericht === "Nudeln") {
-    bestellung = arrNudeln[index];
-  } else if (gericht === "Vegi") {
-    bestellung = arrVegi[index];
+  } else if (gericht === "Pasta") {
+    bestellung = arrPasta[index];
+  } else if (gericht === "Vegetarische") {
+    bestellung = arrVegetarische[index];
   }
 
   if (!bestellung) return;
 
-  // if same item already in cart, increase quantity
   const existing = cart.find((item) => item.name === bestellung.name);
   if (existing) {
     existing.menge = (existing.menge || 1) + 1;
@@ -85,38 +96,21 @@ let renderBestellen = function (index, gericht) {
     `<p>Du hast zuletzt ${bestellung.name} für ${bestellung.preis}€ bestellt.</p>`;
   renderEinkaufswagen();
   renderBestellSumme();
+  renderEndsumme();
 };
-
-// const listStorage = (list, key) => {
-//   localStorage.setItem(key, JSON.stringify(list));
-// };
-
-// const getStorage = (key) => {
-//   const data = localStorage.getItem(key);
-//   return data ? JSON.parse(data) : null;
-// };
 
 let renderEinkaufswagen = function () {
   let htmlString = "";
-  cart.forEach((item, idx) => {
+  cart.forEach((item, index) => {
     const qty = item.menge || 1;
-    const cost = (item.preis * qty).toFixed(2);
+    const zwischensumme = (item.preis * qty).toFixed(2);
     htmlString += `<div class="gerichtEinkaufswagen">
-          <p>${item.name}</p>
-          <p>Einzelpreis: ${item.preis}€</p>
+          <p>${item.name}</p> <p>Einzelpreis: ${item.preis}€</p>
           <p>Menge: ${qty}</p>
-          
-          <button onclick="renderMengePlus(${idx})">+</button>
-          <button onclick="renderMengeMinus(${idx})">-</button>
-          <button onclick="renderRemoveItem(${idx})">Entfernen</button>
-
-
-
-          <p>Zwischensumme: ${cost}€</p>
-
-
-          </div>`;
-
+          <button onclick="renderMengePlus(${index})">+</button>
+          <button onclick="renderMengeMinus(${index})">-</button>
+          <button onclick="renderRemoveItem(${index})">Entfernen</button>
+          <p>Zwischensumme: ${zwischensumme}€</p> </div>`;
     return htmlString;
   });
   document.getElementById("einkaufswagenContainer").innerHTML = htmlString;
@@ -129,6 +123,8 @@ let renderBestellSumme = function () {
   );
   document.getElementById("bestellSumme").innerHTML =
     `<p>Du hast insgesamt ${total.toFixed(2)}€ bestellt.</p>`;
+
+  const editedsum = total.toFixed(2);
 };
 
 let clearCart = function () {
@@ -136,6 +132,7 @@ let clearCart = function () {
   document.getElementById("bestellung").innerHTML = "";
   renderEinkaufswagen();
   renderBestellSumme();
+  renderEndsumme();
 };
 
 let renderMengePlus = function (index) {
@@ -143,6 +140,7 @@ let renderMengePlus = function (index) {
     cart[index].menge = (cart[index].menge || 1) + 1;
     renderEinkaufswagen();
     renderBestellSumme();
+    renderEndsumme();
   }
 };
 
@@ -150,10 +148,11 @@ let renderMengeMinus = function (index) {
   if (cart[index]) {
     cart[index].menge = (cart[index].menge || 1) - 1;
     if (cart[index].menge <= 0) {
-      cart.splice(index, 1); // Remove item if quantity is zero or less
+      cart.splice(index, 1);
     }
     renderEinkaufswagen();
     renderBestellSumme();
+    renderEndsumme();
   }
 };
 
@@ -162,7 +161,28 @@ let renderRemoveItem = function (index) {
     cart.splice(index, 1);
     renderEinkaufswagen();
     renderBestellSumme();
+    renderEndsumme();
   } else {
     alert("Item not found in cart.");
   }
+};
+
+const liefergebuehr = 6;
+
+let renderEndsumme = function () {
+  const total = cart.reduce(
+    (sum, item) => sum + Number(item.preis) * (item.menge || 1),
+    0,
+  );
+
+  // Liefergebühr ab 15€ gratis
+  const freeDeliver = total >= 20 ? 0 : liefergebuehr;
+  const endsumme = total + freeDeliver;
+
+  // optional: Liefergebühr-Box gleich mit aktualisieren
+  document.getElementById("liefersumme").innerHTML =
+    `<p>Liefergebühr: ${freeDeliver.toFixed(2)}€</p>`;
+
+  document.getElementById("endsumme").innerHTML =
+    `<p>Endsumme: ${endsumme.toFixed(2)}€</p>`;
 };
