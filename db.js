@@ -53,7 +53,7 @@ let gerichteListe = {
       preis: 9.0,
       beschreibung:
         "Knackiges Gemüse, schonend gebraten und mit Reis serviert – leicht gewürzt, voller Geschmack.",
-      imgDBsrc: "assets/img/gerichte/   .jpg",
+      imgDBsrc: "assets/img/gerichte/gemuese_pfanne.jpg",
     },
     {
       name: "Vegetarische Lasagne",

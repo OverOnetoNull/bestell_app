@@ -1,9 +1,10 @@
 body {
+
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
     width: 100vw;
-    padding: 20px;
+
 }
 
 
@@ -44,8 +45,18 @@ button {
 
 .content_wrapper {
     display: flex;
-    width: calc(100% - 600);
+    width: calc(100% - 600px);
     padding: 20px;
+
+    gap: 2px;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background-color: aqua;
+
+
+
 }
 
 
@@ -69,15 +80,6 @@ button {
 
 }
 
-.content_wrapper {
-    gap: 2px;
-    padding: 2px;
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    background-color: aqua;
-
-}
 
 .basket {
     width: 100%;
