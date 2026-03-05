@@ -190,13 +190,11 @@ function toggleStatus() {
 }
 
 function meinFalseButton() {
-  console.log("Status = false");
   Status = false;
   newVersion();
 }
 
 function meinTrueButton() {
-  console.log("Status = true");
   Status = true;
   newVersion();
 }
