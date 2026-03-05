@@ -12,6 +12,6 @@ let init = function () {
 
   renderEinkaufswagen();
   renderBestellSumme();
-  renderLiefersumme();
-  renderDeliveryButton();
+  // renderLiefersumme();
+  // renderDeliveryButton();
 };

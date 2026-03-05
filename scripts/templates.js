@@ -8,7 +8,7 @@ function renderPizza() {
         <h2>${arrPizza[i].name}</h2>
         <p>${arrPizza[i].beschreibung}</p>
         <p>${arrPizza[i].preis.toFixed(2)}€</p>
-        <button onclick="renderBestellen(${i}, 'Pizza')">Bestellen</button>
+        <button onclick="disp(), renderBestellen(${i}, 'Pizza')">Bestellen</button>
         </div>`;
   }
 
@@ -52,6 +52,7 @@ let renderVegetarische = function () {
   if (!container) console.error("#vegiContainer missing");
   else container.innerHTML = htmlString;
 };
+
 let renderBestellen = function (index, gericht) {
   const daten = {
     Pizza: arrPizza,
@@ -67,8 +68,8 @@ let renderBestellen = function (index, gericht) {
     ? (existing.menge = (existing.menge || 1) + 1)
     : cart.push({ ...bestellung, menge: 1 });
 
-  document.getElementById("bestellung").innerHTML =
-    `<p>${bestellung.name} für ${bestellung.preis}€ hinzugefügt</p>`;
+  // document.getElementById("bestellung").innerHTML =
+  //   `<p>${bestellung.name} für ${bestellung.preis}€ hinzugefügt</p>`;
 
   renderEinkaufswagen();
   renderBestellSumme();
@@ -81,11 +82,14 @@ let renderEinkaufswagen = function () {
     const qty = item.menge || 1;
     const zwischensumme = (item.preis * qty).toFixed(2);
     htmlString += `<div class="gerichtEinkaufswagen">
-          <p>${item.name}</p> <p>Einzelpreis: ${item.preis}€</p>
-          <p>Menge: ${qty}</p>
+       
+        <p>${item.name}</p> <p>Einzelpreis: ${item.preis}€</p>
+             <p>Menge: ${qty}</p>
           <button onclick="renderMengePlus(${index})">+</button>
           <button onclick="renderMengeMinus(${index})">-</button>
-          <button onclick="renderRemoveItem(${index})">Entfernen</button>
+
+          
+        <button onclick="renderRemoveItem(${index})">Entfernen</button>
           <p>Zwischensumme: ${zwischensumme}€</p> </div>`;
     return htmlString;
   });
@@ -195,4 +199,11 @@ function meinTrueButton() {
   console.log("Status = true");
   Status = true;
   newVersion();
+}
+
+// scrollbar
+// document.getElementById("myScrollDiv").addEventListener("scroll");
+
+function disp() {
+  document.getElementById("myScrollDiv").style.display = "flex";
 }
