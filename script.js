@@ -9,9 +9,6 @@ let init = function () {
   renderPizza();
   renderPasta();
   renderVegetarische();
-
   renderEinkaufswagen();
   renderBestellSumme();
-  // renderLiefersumme();
-  // renderDeliveryButton();
 };
