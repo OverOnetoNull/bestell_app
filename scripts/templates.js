@@ -82,15 +82,12 @@ let renderEinkaufswagen = function () {
     const qty = item.menge || 1;
     const zwischensumme = (item.preis * qty).toFixed(2);
     htmlString += `<div class="gerichtEinkaufswagen">
-       
         <p>${item.name}</p> <p>Einzelpreis: ${item.preis}€</p>
-             <p>Menge: ${qty}</p>
+          <p>Menge: ${qty}</p>
           <button onclick="renderMengePlus(${index})">+</button>
           <button onclick="renderMengeMinus(${index})">-</button>
-
-          
-        <button onclick="renderRemoveItem(${index})">Entfernen</button>
-          <p>Zwischensumme: ${zwischensumme}€</p> </div>`;
+          <img src="./assets/img/icons/delete.png"  class="Delete_Button" onclick="renderRemoveItem(${index})"></img>
+        </div>`;
     return htmlString;
   });
   document.getElementById("einkaufswagenContainer").innerHTML = htmlString;

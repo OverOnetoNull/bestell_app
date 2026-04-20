@@ -1,5 +1,16 @@
-body {
+:root {
+    --primary-bg-color: rgb(232, 108, 30);
+}
 
+/* .note {
+  --note-bg: yellow; /* local scope */
+/* } */
+
+
+
+
+body {
+    background-color: var(--primary-bg-color);
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
@@ -7,6 +18,57 @@ body {
 
 }
 
+
+.header {
+    background-color: var(--primary-bg-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.hero-img {
+    width: 100%;
+    display: block;
+}
+
+
+.burger-logo {
+    position: relative;
+
+    height: 200px;
+    width: 200px;
+    align-self: center;
+    margin-top: -100px;
+    margin-bottom: -100px;
+    z-index: 10;
+}
+
+
+.name-burgerhouse {
+    display: flex;
+
+    width: 100%;
+    height: 150px;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+
+.burger-house-text {
+    height: 50px;
+    width: 80px;
+}
+
+.costumer-score {
+    height: 50px;
+    width: 80px;
+}
 
 
 h2 {
@@ -42,6 +104,17 @@ button {
     cursor: pointer;
     border-radius: 5px;
 }
+
+.Delete_Button {
+
+    height: 50px;
+    width: 50px;
+}
+
+.Delete_Button:hover {
+    background-image: url('./assets/img/icons/delete_hover.png');
+}
+
 
 .content_wrapper {
     display: flex;

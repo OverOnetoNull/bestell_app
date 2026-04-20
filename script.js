@@ -4,8 +4,6 @@ let arrVegetarische = gerichteListe.Vegetarische_Gerichte;
 let arrEinkaufswagen = [];
 
 let init = function () {
-  console.log("init Welt");
-
   renderPizza();
   renderPasta();
   renderVegetarische();
