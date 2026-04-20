@@ -3,10 +3,10 @@ let arrPasta = gerichteListe.Pasta;
 let arrVegetarische = gerichteListe.Vegetarische_Gerichte;
 let arrEinkaufswagen = [];
 
-let init = function () {
+function init() {
   renderPizza();
   renderPasta();
   renderVegetarische();
   renderEinkaufswagen();
   renderBestellSumme();
-};
+}
