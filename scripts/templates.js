@@ -5,10 +5,10 @@ function renderPizza() {
   for (let i = 0; i < (arrPizza ? arrPizza.length : 0); i++) {
     htmlString += `<div class="gericht">
         <img src="${arrPizza[i].imgDBsrc}" class="imgDBsrcClass" alt="${arrPizza[i].name}">
-        <h2>${arrPizza[i].name}</h2>
-        <p>${arrPizza[i].beschreibung}</p>
+        <div class="name-description"><h2>${arrPizza[i].name}</h2><p>${arrPizza[i].beschreibung}</p></div>
+          <div class="price-order">
         <p>${arrPizza[i].preis.toFixed(2)}€</p>
-        <button onclick="disp(), renderBestellen(${i}, 'Pizza')">Bestellen</button>
+        <button onclick="disp(), renderBestellen(${i}, 'Pizza')">Bestellen</button></div>
         </div>`;
   }
 
@@ -25,11 +25,13 @@ let renderPasta = function () {
   for (let i = 0; i < (arrPasta ? arrPasta.length : 0); i++) {
     htmlString += `<div class="gericht">
           <img src="${arrPasta[i].imgDBsrc}" class="imgDBsrcClass" alt="${arrPasta[i].name}">
-          <h2>${arrPasta[i].name}</h2>
+          <div class="name-description"><h2>${arrPasta[i].name}</h2>
           <p>${arrPasta[i].beschreibung}</p>
+          </div>
+          <div class="price-order">
           <p>${arrPasta[i].preis.toFixed(2)}€</p>
           <button onclick="renderBestellen(${i}, 'Pasta')">Bestellen</button>
-          </div>`;
+          </div></div>`;
   }
 
   const container = document.getElementById("pastaContainer");
@@ -42,11 +44,15 @@ let renderVegetarische = function () {
   for (let i = 0; i < (arrVegetarische ? arrVegetarische.length : 0); i++) {
     htmlString += `<div class="gericht">
           <img src="${arrVegetarische[i].imgDBsrc}" class="imgDBsrcClass" alt="${arrVegetarische[i].name}">
-          <h2>${arrVegetarische[i].name}</h2>
-          <p>${arrVegetarische[i].beschreibung}</p>
-          <p>${arrVegetarische[i].preis.toFixed(2)}€</p>
-          <button onclick="renderBestellen(${i}, 'Vegetarische')">Bestellen</button>
-          </div>`;
+          <div class="name-description">
+            <h2>${arrVegetarische[i].name}</h2>
+            <p>${arrVegetarische[i].beschreibung}</p>
+          </div>
+          <div class="price-order">
+            <p>${arrVegetarische[i].preis.toFixed(2)}€</p>
+            <button onclick="renderBestellen(${i}, 'Vegetarische')">Bestellen</button>
+          </div>
+        </div>`;
   }
   const container = document.getElementById("vegiContainer");
   if (!container) console.error("#vegiContainer missing");
